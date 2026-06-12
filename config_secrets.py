@@ -1,0 +1,6 @@
+# API 凭证（自动注入）
+import os
+
+API_KEY = os.getenv("OKX_API_KEY", "1138026b-cc72-4472-b7bc-c95835bcdedd")
+SECRET_KEY = os.getenv("OKX_API_SECRET", "3BFCB11A008282B5E65E772AFA56E9FE")
+PASSPHRASE = os.getenv("OKX_API_PASSPHRASE", "Qq236214.")
