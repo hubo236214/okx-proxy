@@ -3,7 +3,7 @@ name: OKX Short Strategy
 on:
   schedule:
     # 每25分钟运行一次
-    - cron: '*/25 * * * *'
+    # DISABLED - cron: '*/25 * * * *'
   workflow_dispatch:  # 手动触发
 
 jobs:
