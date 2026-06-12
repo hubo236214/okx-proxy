@@ -1,12 +1,15 @@
 """OKX 新币做空策略 v2 — 配置"""
 import os
 
-# ============ API 凭证 ============
 API_KEY = os.getenv("OKX_API_KEY", "1138026b-cc72-4472-b7bc-c95835bcdedd")
 SECRET_KEY = os.getenv("OKX_API_SECRET", "3BFCB11A008282B5E65E772AFA56E9FE")
 PASSPHRASE = os.getenv("OKX_API_PASSPHRASE", "Qq236214.")
+PASSPHRASE_TIP = ""
 
-# ============ 策略参数 ============
+DEMO_API_KEY = os.getenv("OKX_DEMO_API_KEY", "")
+DEMO_SECRET_KEY = os.getenv("OKX_DEMO_SECRET_KEY", "")
+DEMO_PASSPHRASE = os.getenv("OKX_DEMO_PASSPHRASE", "")
+
 INITIAL_BALANCE = 13.0
 POSITION_SIZE = 3.0
 MAX_POSITIONS = 3
@@ -27,6 +30,6 @@ MAX_HOLD_DAYS = 21
 
 USE_DEMO = False
 SCAN_INTERVAL_MINUTES = 25
-
+PUSH_TOKEN = os.getenv("PUSH_TOKEN", "")
 STATE_FILE = "state.json"
 LOG_FILE = "trades.log"
