@@ -1,0 +1,32 @@
+"""OKX 新币做空策略 v2 — 配置"""
+import os
+
+# ============ API 凭证 ============
+API_KEY = os.getenv("OKX_API_KEY", "1138026b-cc72-4472-b7bc-c95835bcdedd")
+SECRET_KEY = os.getenv("OKX_API_SECRET", "3BFCB11A008282B5E65E772AFA56E9FE")
+PASSPHRASE = os.getenv("OKX_API_PASSPHRASE", "Qq236214.")
+
+# ============ 策略参数 ============
+INITIAL_BALANCE = 13.0
+POSITION_SIZE = 3.0
+MAX_POSITIONS = 3
+LEVERAGE = 3
+BUFFER_BALANCE = 4.0
+
+LISTING_DAYS_MIN = 3
+LISTING_DAYS_MAX = 30
+ATR_THRESHOLD = 0.08
+PRICE_95_PERCENTILE = True
+FUNDING_RATE_POSITIVE = True
+
+TP1_PCT = 0.15
+TP1_CLOSE_HALF = True
+TP2_PCT = 0.25
+SL_PCT = 0.15
+MAX_HOLD_DAYS = 21
+
+USE_DEMO = False
+SCAN_INTERVAL_MINUTES = 25
+
+STATE_FILE = "state.json"
+LOG_FILE = "trades.log"
