@@ -1,0 +1,34 @@
+name: OKX Short Strategy
+
+on:
+  schedule:
+    # 每25分钟运行一次
+    - cron: '*/25 * * * *'
+  workflow_dispatch:  # 手动触发
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run Strategy
+        env:
+          OKX_API_KEY: ${{ secrets.OKX_API_KEY }}
+          OKX_API_SECRET: ${{ secrets.OKX_API_SECRET }}
+          OKX_API_PASSPHRASE: ${{ secrets.OKX_API_PASSPHRASE }}
+        run: |
+          pip install -q requests || true
+          python strategy.py
+      
+      - name: Upload Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trade-logs
+          path: trades.log
